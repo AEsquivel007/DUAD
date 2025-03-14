@@ -1,0 +1,52 @@
+[
+    {
+        "full_name":"Alberth Esquivel",
+        "student_section":"11A",
+        "scores":{
+            "spanish":75.0,
+            "english":87.0,
+            "geography":90.0,
+            "science":99.0
+        }
+    },
+    {
+        "full_name":"Leonel Messi",
+        "student_section":"11B",
+        "scores":{
+            "spanish":76.0,
+            "english":77.0,
+            "geography":83.0,
+            "science":90.0
+        }
+    },
+    {
+        "full_name":"Ricardo Alvarado",
+        "student_section":"11C",
+        "scores":{
+            "spanish":89.0,
+            "english":88.0,
+            "geography":91.0,
+            "science":66.0
+        }
+    },
+    {
+        "full_name":"Sol Obando",
+        "student_section":"11D",
+        "scores":{
+            "spanish":99.0,
+            "english":84.0,
+            "geography":61.0,
+            "science":70.0
+        }
+    },
+    {
+        "full_name":"Cristiano Ronaldo",
+        "student_section":"11E",
+        "scores":{
+            "spanish":77.0,
+            "english":88.0,
+            "geography":99.0,
+            "science":75.0
+        }
+    }
+]
