@@ -16,8 +16,9 @@ def register_student_information():
                 break
             else:
                 print("ERROR: Debe ingresar un número entero positivo. ")
-    except:
-        print("Lo sentimos, ha ocurrido un error inesperado en el sistema.")
+    except Exception as ex:
+        print("Lo sentimos, ha ocurrido un error inesperado al intentar registrar la información del estudiante.")
+        print(f"El error obtenido por el sistema es: {ex}")
         exit()
 
 
@@ -63,6 +64,7 @@ def type_student_information(counter):
         
     except ValueError as ex:
         print("Ha ocurrido un error al intentar registrar el estudiante, inténtelo más tarde.")
+        print(f"El error obtenido por el sistema es: {ex}")
         exit()
 
 
@@ -93,12 +95,13 @@ def register_information_within_json_file(student_information):
             
         print(f"El/La estudiante {student_information["full_name"]} se registró correctamente.")
         
-    except:
+    except Exception as ex:
         print("ERROR: Ha ocurrido un error al intentar registrar la información del estudiante.")
+        print(f"El error obtenido por el sistema es: {ex}")
 
 
 def obtain_students_information():
-  
+    
     try:
         path_file = utilities.obtain_path_file()
         file_exists = utilities.validate_if_file_exists(path_file)
@@ -115,8 +118,9 @@ def obtain_students_information():
                 
                 for student in json_data:
                     print(student)
-    except:
+    except Exception as ex:
         print("ERROR: Se ha producido un error al intentar mostrar la información de todos los estudiantes.")
+        print(f"El error obtenido por el sistema es: {ex}")
 
 
 def obtain_average_top_three():
@@ -135,8 +139,9 @@ def obtain_average_top_three():
             
             for index  in range(0, 3):
                 print(f"El/la estudiante: {sorted_information[index]["full_name"]} tiene una calificación promedio de: {sorted_information[index]["average"]}")
-    except:
+    except Exception as ex:
         print("ERROR: Ha ocurrido un error al obtener el top tres de las mejores calificaciones promedio.")
+        print(f"El error obtenido por el sistema es: {ex}")
 
 
 def print_students_average():
@@ -160,5 +165,6 @@ def print_students_average():
                 total = total_average / total_students
             print(f"La nota promedio entre todos los estudiantes es de: {total:.2f}")
 
-    except:
+    except Exception as ex:
         print("ERROR: Ha ocurrido un error al obtener la nota promedio de todos los estudiantes.")
+        print(f"El error obtenido por el sistema es: {ex}")

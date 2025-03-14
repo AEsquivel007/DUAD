@@ -32,10 +32,12 @@ def export_data_to_csv_file():
             print(f"Datos exportados exitosamente en el archivo: '{csv_path}'.")
     except Exception as ex:
         print("ERROR: Ha ocurrido un error al intentar exportar la información al archivo CSV.")
+        print(f"El error obtenido por el sistema es: {ex}")
 
 
 def import_data_from_csv_file():
     csv_path = utilities.obtain_csv_path_file()
+    students = []
     try:
         file_exists = utilities.validate_if_file_exists(csv_path)
         
@@ -46,12 +48,32 @@ def import_data_from_csv_file():
                 for row in reader:
                     student_information = {"full_name" : row["full_name"], "student_section" : row["student_section"], 
                         "scores": {"spanish": row["spanish"], "english" : row["english"], "geography": row["geography"], "science": row["science"]}}
-                    
-                    actions.register_information_within_json_file(student_information)
+                    students.append(student_information)
+                save_imported_data(students)
             
-            print("Información importada correctamente.")
         else:
             print(f"ADVERTENCIA: No se pueden importar los datos desde el archivo '.csv', debido a que el archivo no existe.")
     
-    except:
+    except Exception as ex:
         print("ERROR: Ha ocurrido un error al intentar importar la información desde un archivo '.CSV'.")
+        print(f"El error obtenido por el sistema es: {ex}")
+
+
+def save_imported_data(students_data):
+    imported_data_file_path = "semana10/imported_data.csv"
+    
+    try:
+        headers = ["full_name", "student_section", "spanish", "english", "geography", "science"] 
+        
+        with open(imported_data_file_path, "w", encoding = "utf-8", newline = "") as file:
+            writer = csv.writer(file)
+            writer.writerow(headers)
+            
+            for student in students_data:
+                row = [student["full_name"], student["student_section"]] + list(student["scores"].values())
+                writer.writerow(row)
+        print("La información importada se registró correctamente.")
+
+    except Exception as ex:
+        print("ERROR: Ha ocurrido un error al intentar guardar la información importada.")
+        print(f"El error obtenido por el sistema es: {ex}")

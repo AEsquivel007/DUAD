@@ -27,7 +27,7 @@ def display_menu():
         
     except ValueError as ex:
         print("Lo sentimos, ha ocurrido un error al seleccionar una de las opciones.")
-        print(f"Error obtenido por el sistema: {ex}")
+        print(f"El error obtenido por el sistema es: {ex}")
         exit()
 
 
@@ -38,8 +38,9 @@ def validate_if_file_exists(path):
         if file_exists:    
             return True
         return False
-    except:
+    except Exception as ex:
         print("ERROR: Ha ocurrido un error al intentar validar la existencia del archivo.")
+        print(f"El error obtenido por el sistema es: {ex}")
 
 
 def validate_if_file_is_empty(path):
@@ -53,8 +54,9 @@ def validate_if_file_is_empty(path):
             return False
         else:
             return False
-    except:
+    except Exception as ex:
         print("ERROR: Ha ocurrido un error al intentar validar longitud del archivo.")
+        print(f"El error obtenido por el sistema es: {ex}")
 
 
 def ask_if_continue():
@@ -69,8 +71,9 @@ def ask_if_continue():
             else:
                 return False
 
-    except:
+    except Exception as ex:
         print("ERROR: Ha ocurrido un error al momento de continuar con la ejecución del programa.")
+        print(f"El error obtenido por el sistema es: {ex}")
         print("Muchas gracias.")
 
 
@@ -86,9 +89,6 @@ def obtain_csv_path_file():
 
 def calculate_average_per_student():
     path_file = obtain_path_file()
-    file_exists = validate_if_file_exists(path_file)
-    file_is_empty = validate_if_file_is_empty(path_file)
-    total_students = 0
     students_average = []
     
     try:
@@ -109,5 +109,6 @@ def calculate_average_per_student():
         
         return students_average
 
-    except:
+    except Exception as ex:
         print("ERROR: Ha ocurrido un error al intentar calcular la nota promedio de cada estudiante.")
+        print(f"El error obtenido por el sistema es: {ex}")
