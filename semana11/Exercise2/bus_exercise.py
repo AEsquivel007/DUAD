@@ -1,7 +1,8 @@
 class Bus:
 
-    max_passengers = 2
-    passengers_on_bus = []
+    def __init__(self):
+        self.passengers_on_bus = []
+        self.max_passengers = 2
     
     def validate_total_of_passengers(self):
         total = len(self.passengers_on_bus)
