@@ -21,21 +21,21 @@ class Bus:
         
         if total <= self.max_passengers:
             self.passengers_on_bus.append(person)
-            print("Se ha subido un nuevo pasajero al bus.")
+            print("A passanger got on the bus.")
         
         else:
-            print("Lo sentimos, el bus está lleno.")
+            print("Sorry, the bus doesn't have seats.")
     
     
     def delete_passenger(self):
         total_of_passengers = self.validate_total_of_passengers()
         
         if total_of_passengers == 0:
-            print("Todos los pasajeros se han bajado del bus.")
+            print("All the passengers have gotten off the bus.")
         
         else:
             self.passengers_on_bus.pop()
-            print("Se ha bajado un pasajero del bus.")
+            print("A passenger has gotten off the bus.")
 
 
 class Person():
@@ -48,34 +48,34 @@ def main():
     try:
         bus = Bus()
         while True:
-            print("""Bienvenido al Sistema de Buses de Lyfter, seleccione una de las siguientes opciones:
-            1. Subir pasajero
-            2. Bajar pasajero""")
+            print("""Welcome to the Lyfter's Bus System, please select one of the following options:
+            1. Pick up passanger
+            2. Drop off passanger""")
             
-            user_input:str = input("Seleccione una de las opciones brindadas: ")
+            user_input:str = input("Select one of the given options: ")
             
             if user_input.isdigit():
                 value = int(user_input)
                 
                 if value == 1:
-                    name = input("Ingrese el nombre del pasajero: ")
-                    age = int(input("Ingrese la edad del pasajero: "))
+                    name = input("Insert the name of the passanger: ")
+                    age = int(input("Insert the age of the passanger: "))
                     
                     person = Person(name, age)
                     bus.add_passenger(person)
                 elif value == 2:
                     bus.delete_passenger()
                 
-                response = input("¿Desea realizar otra operación? [s/n]: ")
+                response = input("Would you like to continue using the system? [s/n]: ")
                 
                 if response == "n":
-                    print("Muchas gracias por usar el Sistema de Buses de Lyfter. Adiós...")
+                    print("Thank you for using the Lyfter's Bus System. Bye!!!")
                     break 
             else:
-                print("Debe ingresar un valor numérico...")
+                print("You have to provide a numeric value...")
     
     except Exception as ex:
-        print(f"Ha ocurrido un error en el sistema de buses. El error obtenido fue: {ex}")
+        print(f"ERROR: An unexpected error occurred. System error: {ex}")
 
 
 if __name__ == "__main__":

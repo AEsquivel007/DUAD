@@ -9,40 +9,40 @@ class Human:
         self.name = name
         self.head = Head()
         self.torso = Torso()
-        self.left_arm = Arm("izquierdo")
-        self.right_arm = Arm("derecho")
-        self.left_leg = Leg("izquierda")
-        self.right_leg = Leg("derecha")
+        self.left_arm = Arm("left")
+        self.right_arm = Arm("right")
+        self.left_leg = Leg("left")
+        self.right_leg = Leg("right")
     
     
-    def presentarse(self):
-        self.head.hablar(f"Hola, mi nombre es: {self.name}...")
+    def introduce(self):
+        self.head.speak(f"Hello, my name is: {self.name}...")
     
     
-    def respirar(self):
-        self.torso.respirar()
+    def breathe(self):
+        self.torso.breathe()
     
     
-    def agarrar_objeto(self, item):
-        self.left_arm.hand.agarrar(item)
-        self.right_arm.hand.agarrar(item)
+    def grab_object(self, item):
+        self.left_arm.hand.grab(item)
+        self.right_arm.hand.grab(item)
     
     
-    def mover_brazos(self):
-        self.left_arm.mover()
-        self.right_arm.mover()
+    def move_arms(self):
+        self.left_arm.move()
+        self.right_arm.move()
     
     
-    def caminar(self):
-        self.left_leg.caminar()
-        self.right_leg.caminar()
+    def walk(self):
+        self.left_leg.walk()
+        self.right_leg.walk()
     
     
-    def dar_paso(self):
-        self.left_leg.feet.dar_paso()
-        self.right_leg.feet.dar_paso()
+    def step(self):
+        self.left_leg.feet.step()
+        self.right_leg.feet.step()
     
     
     def __str__(self):
-        phrase = f"El cuerpo de {self.name} ha realizado todas las funciones..."
+        phrase = f"{self.name}'s body has fulfilled all its functions..."
         return phrase

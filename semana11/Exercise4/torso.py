@@ -6,10 +6,10 @@ class Torso:
         self.stomatch = stomach
     
     
-    def respirar(self):
-        print("Respirando...")
+    def breathe(self):
+        print("Breathing...")
     
     
     def __str__(self):
-        phrase = f"El torso del cuerpo tiene {self.heart} corazón, {self.lungs} pulmones, {self.ribs} costillas y {self.stomatch} estómago."
+        phrase = f"My torso has {self.heart} corazón, {self.lungs} lungs, {self.ribs} ribs and {self.stomatch} estomach."
         return phrase

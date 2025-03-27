@@ -8,12 +8,12 @@ def main():
             result = utilities.ask_if_continue()
             
             if not result:
-                print("Muchas gracias por usar el Sistema de Control de Estudiantes de Lyfter. Adiós...")
+                print("Thank you for using the system. Bye...")
                 break
         
     except Exception as ex:
-        print("ERROR: Ha ocurrido un error.")
-        print(f"Error obtenido por el sistema: {ex}")
+        print("ERROR: An unexpected error occurred.")
+        print(f"System error: {ex}")
         exit()
 
 

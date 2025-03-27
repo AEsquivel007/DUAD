@@ -7,6 +7,6 @@ class Arm:
         self.side = side
     
     
-    def mover(self):
-        print(f"Estoy moviendo el brazo {self.side}.")
+    def move(self):
+        print(f"I'm moving my {self.side} arm.")
         print(self.hand)

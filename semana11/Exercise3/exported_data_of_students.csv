@@ -1,6 +1,6 @@
-Cédula,Nombre Completo,Sección,Español,Inglés,Geografía,Ciencias
-1,Alberth Esquivel,11A,77,87,91,68
-2,Marilis Alvarado,11B,88,77,99,98
-3,Asdrúbal Chávez,11C,68,96,74,61
-4,Lisset Arias,11D,98,76,56,87
-5,Adiel Pérez,11E,98,36,69,70
+Id,Full Name,Section,Spanish,English,Geography,Sciences
+1,Alberth Esquivel,11A,66,77,88,99
+2,Marilis Alvarado,11B,78,76,90,95
+3,Carlos Díaz,11C,89,87,65,46
+4,Rodrigo Esquivel,11D,90,66,44,59
+5,Luisa Pérez,11E,79,63,24,68

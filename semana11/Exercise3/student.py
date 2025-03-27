@@ -11,30 +11,30 @@ class Student:
             if len(scores) > 0:
                 self.scores = scores
             else:
-                print("ERROR: No se han asignado calificaciones para el estudiante.")
+                print("ERROR: No grades were assigned.")
         except Exception as ex:
-            print("Ha ocurrido un error al intentar asignar las notas.")
-            print(f"Error obtenido: {ex}")
+            print("ERROR: An unexpected error occurred while assigning the grades")
+            print(f"System error: {ex}")
     
     
     def calculate_student_average(self):
         try:
             if not self.scores:
-                print("ADVERTENCIA: No se puede calcular el promedio del estudiante, debido a que no tiene calificaciones registradas.")
+                print("WARNING: The system cannot calculate the student's average, due to no grades were registered.")
                 return 0
             summed_scores = sum(self.scores)
             total_scores = len(self.scores)
             total = summed_scores / total_scores
             return total
         except Exception as ex:
-            print("Ha ocurrido un error al intentar calcular el promedio de notas.")
-            print(f"Error obtenido: {ex}")
+            print("ERROR: An unexpected error occurred while calculating the average.")
+            print(f"System error: {ex}")
     
     
     def __str__(self):
         try:
             Spanish, English, Geography, Science = self.scores
-            return f"Cédula: {self.id} | Estudiante: {self.full_name} | Sección: {self.section} | Calificaciones obtenidas: Español: {Spanish} | Inglés: {English} | Geografía: {Geography} | Ciencias: {Science}"
+            return f"Id: {self.id} | Student: {self.full_name} | Section: {self.section} | Grades: Spanish: {Spanish} | English: {English} | Geography: {Geography} | Sciences: {Science}"
         except Exception as ex:
-            print("Ha ocurrido un error al intentar la información del estudiante.")
-            print(f"Error obtenido: {ex}")
+            print("ERROR: An unexpected error occurred while obtaining the student's information.")
+            print(f"System error: {ex}")

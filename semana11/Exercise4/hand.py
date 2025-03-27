@@ -4,21 +4,10 @@ class Hand:
         self.side = side
 
     
-    def agarrar(self, item):
-        if self.side == "izquierdo":
-            self.side = "izquierda"
-            print(f"La mano {self.side} está agarrando el objeto: {item}.")
-        elif self.side == "derecho":
-            self.side = "derecha"
-            print(f"La mano {self.side} está agarrando el objeto: {item}.")
+    def grab(self, item):
+        print(f"My {self.side} hand is grabbing the: {item}.")
     
     
     def __str__(self):
-        phrase = ""
-        if self.side == "izquierdo":
-            self.side = "izquierda"
-            phrase = f"La mano {self.side} tiene {self.fingers} dedos."
-        elif self.side == "derecho":
-            self.side = "derecha"
-            phrase = f"La mano {self.side} tiene {self.fingers} dedos."
+        phrase = f"My {self.side} hand has {self.fingers} fingers."
         return phrase

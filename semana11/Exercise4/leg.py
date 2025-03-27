@@ -7,6 +7,6 @@ class Leg:
         self.feet = Feet(side)
     
     
-    def caminar(self):
-        print(f"Moviendo la pierna {self.side}.")
+    def walk(self):
+        print(f"Moving my {self.side} leg.")
         print(self.feet)

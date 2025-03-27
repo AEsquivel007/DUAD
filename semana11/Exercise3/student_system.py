@@ -11,19 +11,19 @@ class StudentSystem:
     
     def create_student(self, id:int, full_name:str, section:str, scores:list):
         if id in self.students:
-            print(f"ADVERTENCIA: El estudiante con Id: {id} ya se encuentra registrado.")
+            print(f"WARNING: The student with ID: {id} already exists.")
             return
         
         student = Student(id, full_name, section)
         student.add_scores(scores)
         self.students[id] = student
         
-        print(f"El estudiante '{full_name}' se registró correctamente.")
+        print(f"Student '{full_name}' successfully registered!!!")
     
     
     def obtain_students_information(self):
         if not self.students:
-            print("ADVERTENCIA: No se puede mostrar la información de los estudiantes debido a que no existe información registrada.")
+            print("WARNING: We're sorry, we cannot display information due to there is no information yet.")
             return
         for student in self.students.values():
             print(student)
@@ -31,17 +31,17 @@ class StudentSystem:
 
     def obtain_average_top_three(self):
         if not self.students:
-            print("ADVERTENCIA: No se puede mostrar la información de los estudiantes debido a que no existe información registrada.")
+            print("WARNING: We're sorry, we cannot display information due to there is no information yet.")
             return
         sorted_information = sorted(self.students.values(), key = lambda x: x.calculate_student_average(), reverse = True)[:3]
         
         for student in sorted_information:
-            print(f"El estudiante '{student.full_name}' tiene un promedio de: {student.calculate_student_average()}")
+            print(f"The student '{student.full_name}' has an average of: {student.calculate_student_average()}")
     
     
     def print_students_average(self):
         if not self.students:
-            print("ADVERTENCIA: No se puede mostrar la información de los estudiantes debido a que no existe información registrada.")
+            print("WARNING: We're sorry, we cannot display information due to there is no information yet.")
             return
         students_average = 0
         total_students = 0
@@ -51,7 +51,7 @@ class StudentSystem:
             averages += student.calculate_student_average()
         students_average = averages / total_students
         
-        print(f"La nota promedio entre todos los estudiantes es de: {students_average:.2f}")
+        print(f"The average among all students is: {students_average:.2f}")
     
     
     def export_data_to_csv_file(self):
@@ -59,9 +59,9 @@ class StudentSystem:
             csv_path = utilities.obtain_csv_path_file()
             
             if not self.students:
-                print("ADVERTENCIA: No se puede exportar la información de los estudiantes debido a que no existe información registrada.")
+                print("WARNING: We're sorry, we cannot export the information due to there is no information yet.")
             else:
-                headers = ["Cédula", "Nombre Completo", "Sección", "Español", "Inglés", "Geografía", "Ciencias"]
+                headers = ["Id", "Full Name", "Section", "Spanish", "English", "Geography", "Sciences"]
                 with open(csv_path, "w", encoding = "utf-8", newline = "") as csv_file:
                     writer = csv.writer(csv_file)
                     writer.writerow(headers)
@@ -70,10 +70,10 @@ class StudentSystem:
                         row = [student.id, student.full_name, student.section] + list(student.scores)
                         writer.writerow(row)           
                 
-                print(f"Datos exportados exitosamente en el archivo: '{csv_path}'.")
+                print(f"Data exported successfully into the file: '{csv_path}'.")
         except Exception as ex:
-            print("ERROR: Ha ocurrido un error al intentar exportar la información al archivo CSV.")
-            print(f"El error obtenido por el sistema es: {ex}")
+            print("ERROR: An unexpected error occurred when exporting the information into a .csv file")
+            print(f"System error: {ex}")
 
 
     def import_data_from_csv_file(self):
@@ -93,10 +93,11 @@ class StudentSystem:
                         student.add_scores(scores)
                         self.students[row[0]] = student
                 
-                print("Información importada correctamente.")
+                print("Data imported successfully.")
             else:
-                print(f"ADVERTENCIA: No se pueden importar los datos desde el archivo '.csv', debido a que el archivo no existe.")
+                print(f"WARNING: The information cannot be imported due to the '.csv' file does not exist.")
         
-        except:
-            print("ERROR: Ha ocurrido un error al intentar importar la información desde un archivo '.CSV'.")
+        except Exception as ex:
+            print("ERROR: An unexpected error occurred when importing the information from a .csv file")
+            print(f"System error: {ex}")
 

@@ -1,12 +1,12 @@
 from human import Human
 def main():
     human = Human("Alberth")
-    human.presentarse()
-    human.respirar()
-    human.mover_brazos()
-    human.agarrar_objeto("Teléfono")
-    human.caminar()
-    human.dar_paso()
+    human.introduce()
+    human.breathe()
+    human.move_arms()
+    human.grab_object("Phone")
+    human.walk()
+    human.step()
     print(human)
 
 

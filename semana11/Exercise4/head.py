@@ -1,16 +1,16 @@
 class Head:
-    def __init__(self, eyes = 2, ears = 2, nose = 1, mouth = True):
+    def __init__(self, eyes = 2, ears = 2, nose = 1, mouth = 1):
         self.eyes = eyes
         self.ears = ears
         self.mouth = mouth
         self.nose = nose
     
     
-    def hablar(self, phrase):
+    def speak(self, phrase):
         if self.mouth:
-            print(f"La boca está diciendo: {phrase}.")
+            print(f"My mouth is saying: '{phrase}.'")
     
     
     def __str__(self):
-        phrase = f"Cabeza con {self.eyes} ojos, {self.ears} orejas, {self.mouth} boca y {self.nose} nariz."
+        phrase = f"My head has {self.eyes} eyes, {self.ears} ears, {self.mouth} mouth and {self.nose} nose."
         return phrase
