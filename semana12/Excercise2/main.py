@@ -45,10 +45,6 @@ def main():
                     print("WARNING: The provided number is not related to a valid option!!!\n")
             else:
                 print("ERROR: Only integers are allowed!!!")
-            
-            match option:
-                case "1":
-                    amount = input()
     
     except Exception as ex:
         print("ERROR: An unexpected error occurred.")
