@@ -1,0 +1,4 @@
+category,movement_type,description,amount,date
+Food,Expense,Restaurant bill,250.0,2025-05-01
+Housing,Expense,Airbnb payment (2 nights),300.0,2025-03-01
+Technology,Income,Payment received for rental of equipment,2390.0,2025-05-28
