@@ -28,10 +28,10 @@ def validate_if_file_is_empty(path):
 
 
 def return_category_csv_path_file():
-    path_file = "./week17_finance_system/data/categories.csv"
+    path_file = "data/categories.csv"
     return path_file
 
 
 def return_movement_csv_path_file():
-    path_file = "./week17_finance_system/data/movements.csv"
+    path_file = "data/movements.csv"
     return path_file

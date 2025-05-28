@@ -5,10 +5,10 @@ class Category:
     
     def to_dict(self) -> dict:
         return {
-            "category" : self.category
+            "category":self.category
         }
     
     
     @staticmethod
-    def from_dict(category: dict): 
+    def from_dict(category:dict): 
         return Category(category["category"])

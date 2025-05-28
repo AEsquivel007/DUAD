@@ -1,19 +1,26 @@
 import FreeSimpleGUI as sg
 from navigation import go_to_category_window, go_to_movement_window
-#from interfaces.category_interface import show_category_interface
-#from interfaces.movement_interface import show_movement_interface
+from managers.movement_manager import MovementManager
+from helpers.csv_helper import return_movement_csv_path_file
 
 
 def show_main_window():
+    file_path = return_movement_csv_path_file()
+    manager = MovementManager(file_path)
+    manager.load_movements()
     
-    table_values = [
-        ["1", "New AMD 9600X Computer", 3500, "Technology", "16-05-2025"],
-    ]
+    table_headings = ["Category", "Type", "Description", "Amount", "Date"]
+    
     main_layout = [
-        [sg.Text("Personal Finance System")],
-        [sg.Button("Add Category"), sg.Button("List Categories")],
-        [sg.Button("Add Movement")],
-        [sg.Table(table_values, ["Id", "Description", "Amount", "Category", "Date"], auto_size_columns=True,justification="c")],
+        [sg.Push(), sg.Text("Personal Finance System"), sg.Push()],
+        [sg.Push(), sg.Button("Manage Categories"), sg.Push(), sg.Push(), sg.Button("Manage Movements"), sg.Push()],
+        [sg.Table(values=manager.get_movements_as_rows(),
+                headings=table_headings,
+                auto_size_columns=False,
+                col_widths=[10,10,40, 10, 10],
+                expand_x=True,
+                expand_y=True,
+                justification="c")],
         [sg.Push(), sg.Button("Exit")]
     ]
     
@@ -23,10 +30,10 @@ def show_main_window():
         event, values = window.read()
         if event in (sg.WIN_CLOSED, "Exit"):
             break
-        elif event == "Add Category":
+        elif event == "Manage Categories":
             window.close()
             go_to_category_window()
-        elif event == "Add Movement":
+        elif event == "Manage Movements":
             window.close()
             go_to_movement_window()
     
